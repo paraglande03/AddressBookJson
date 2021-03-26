@@ -3,8 +3,8 @@ const utility = require('./utility');
 utility.displayContact();
 // utility.findPerson();
 utility.getcount();
-utility.deleteContact();
-
+// utility.deleteContact();
+utility.searchPersonByCity();
 
 
 

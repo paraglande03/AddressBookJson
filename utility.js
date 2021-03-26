@@ -174,6 +174,15 @@ class AddressBook {
 
     }
 
+    searchPersonByCity = () => {
+        let cityname = readline.question("Enter city to find the persons in: ")
+        let tempArray = [];
+        // tempArray=dataFj["Person"]
+        tempArray = dataFj["Person"].filter(find => find.cityname === cityname)
+            // console.log(dataFj["Person"].filter(find => find.cityname === cityname))
+        console.log(tempArray)
+    }
+
 
 }
 module.exports = new AddressBook();
