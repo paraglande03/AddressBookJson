@@ -1,7 +1,7 @@
 const fs = require('fs');
 const readline = require('readline-sync');
 let dataFromJson = fs.readFileSync('storeAddressBookDetails.json');
-let data = JSON.parse(dataFromJson);
+let dataFj = JSON.parse(dataFromJson);
 
 
 class AddressBook {
@@ -14,7 +14,7 @@ class AddressBook {
         let phoneNumber = readline.question('enter phone number');
         let email = readline.question('enter email');
 
-        data.Person.push({
+        dataFj.Person.push({
             firstname: firstname,
             lastname: lastname,
             city: city,
@@ -23,26 +23,28 @@ class AddressBook {
             phoneNumber: phoneNumber,
             email: email
         })
-        console.log(data["Person"]);
-        const jsonData = JSON.stringify(data);
+        console.log(dataFj["Person"]);
 
-        console.log(jsonData)
 
-        function writeIntoFile(jsonData, success, fail) {
+        console.log(dataFj)
+        const DataTj = JSON.stringify(dataFj);
+
+        function writeIntoFile(DataTj, success, fail) {
+
             var fs = require('fs');
-            fs.writeFile('storeAddressBookDetails.json', JSON.stringify(jsonData), function(error) {
+            fs.writeFile('storeAddressBookDetails.json', DataTj, function(error) {
                 if (error) {
-                    console.log('[write auth]: ' + err);
+                    console.log('[writing contact to json file]: ' + err);
                     if (fail)
                         fail(error);
                 } else {
-                    console.log('[write auth]: success');
+                    console.log('[writing contact to json file]: success');
                     if (success)
                         success();
                 }
             });
         }
-        writeIntoFile(jsonData)
+        writeIntoFile(DataTj)
 
     }
 
