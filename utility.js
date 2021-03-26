@@ -142,13 +142,31 @@ class AddressBook {
     }
 
     findPerson = () => {
-        let input = readline.question('1. find by first name  2. find by phone number ')
+        console.log(dataFj["Person"]);
+        let input = readline.question(" 1.find by firstName \n 2.find by PhoneNumber \n 3.Find by city \n 4.find by state ")
         if (input == 1) {
-            let firstname = readline.question('Enter name: ')
-            console.log(dataFj["Person"].filter(find => find.firstname === firstname))
+            let firstName = readline.question("First name: ")
+            let count = dataFj["Person"].filter(find => find.firstname === firstName)
+            console.log(count);
+
+            console.log("No of persons of this name is " + count.length)
+
+
+
         } else if (input == 2) {
-            let phoneNumber = readline.question('enter phone number: ')
-            console.log(dataFj["Person"].filter(find => find.phoneNumber === phoneNumber))
+            let PhoneNumber = readline.question("Phone Number: ")
+            console.log(dataFj["Person"].filter(find => find.phoneNumber === PhoneNumber));
+            console.log("no of persons having this phone is " + dataFj["Person"].filter(find => find.phoneNumber === PhoneNumber).length);
+
+        } else if (input == 3) {
+            let city = readline.question("city name: ")
+            console.log(dataFj["Person"].filter(find => find.city === city));
+            console.log("number of persons in this city: " + dataFj["Person"].filter(find => find.city === city).length);
+
+        } else if (input == 4) {
+            let state = readline.question("State name: ")
+            console.log(dataFj["Person"].filter(find => find.state === state));
+            console.log("number of persons in this state: " + dataFj["Person"].filter(find => find.state === state).length);
         }
     }
 
@@ -174,14 +192,7 @@ class AddressBook {
 
     }
 
-    searchPersonByCity = () => {
-        let cityname = readline.question("Enter city to find the persons in: ")
-        let tempArray = [];
-        // tempArray=dataFj["Person"]
-        tempArray = dataFj["Person"].filter(find => find.cityname === cityname)
-            // console.log(dataFj["Person"].filter(find => find.cityname === cityname))
-        console.log(tempArray)
-    }
+
 
 
 }
