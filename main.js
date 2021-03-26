@@ -1,5 +1,7 @@
 const utility = require('./utility');
 utility.addDetails();
+utility.displayContact();
+
 
 
 
