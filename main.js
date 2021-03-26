@@ -1,7 +1,8 @@
 const utility = require('./utility');
-// utility.addDetails();
+utility.addDetails();
 utility.displayContact();
 utility.findPerson();
+utility.getcount();
 
 
 

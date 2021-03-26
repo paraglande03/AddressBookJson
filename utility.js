@@ -152,6 +152,11 @@ class AddressBook {
         }
     }
 
+    getcount = () => {
+        let count = Object.keys(dataFj["Person"]).length
+
+        console.log("There Are " + count + "contacts present in addressbook")
+    }
 
 }
 module.exports = new AddressBook();
