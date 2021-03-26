@@ -1,4 +1,5 @@
 const fs = require('fs');
+
 const readline = require('readline-sync');
 let dataFromJson = fs.readFileSync('storeAddressBookDetails.json');
 let dataFj = JSON.parse(dataFromJson);
@@ -138,6 +139,17 @@ class AddressBook {
     }
     displayContact = () => {
         console.log(dataFj["Person"]);
+    }
+
+    findPerson = () => {
+        let input = readline.question('1. find by first name  2. find by phone number ')
+        if (input == 1) {
+            let firstname = readline.question('Enter name: ')
+            console.log(dataFj["Person"].filter(find => find.firstname === firstname))
+        } else if (input == 2) {
+            let phoneNumber = readline.question('enter phone number: ')
+            console.log(dataFj["Person"].filter(find => find.phoneNumber === phoneNumber))
+        }
     }
 
 
