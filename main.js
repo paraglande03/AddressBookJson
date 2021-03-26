@@ -1,33 +1,6 @@
 const utility = require('./utility');
-// utility.addDetails();
+utility.addDetails();
 utility.displayContact();
 utility.findPerson();
-// utility.getcount();
-// utility.deleteContact();
-// utility.searchPersonByCity();
-
-
-
-
-
-// {
-
-//     "Person": [{
-//             "firstName": "parag",
-//             "lastName": "lande",
-//             "address": "savedi",
-//             "city": "nagar",
-//             "state": "mh",
-//             "zip": 414003,
-//             "phoneNumber": 7350355,
-//             "email": "parag@gmail.com"
-
-//         }
-
-
-
-
-
-
-//     ]
-// }
+utility.getcount();
+utility.deleteContact();
