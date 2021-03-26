@@ -192,7 +192,70 @@ class AddressBook {
 
     }
 
+    sortByName = () => {
+        console.log(dataFj["Person"].sort(this.sortPersonByName));
+    }
 
+    sortPersonByName = (a, b) => {
+        let nameA = a.firstname
+        let nameB = b.firstname
+        if (nameA < nameB) {
+            return -1;
+        }
+        if (nameA > nameB) {
+            return 1;
+        }
+        // names must be equal
+        return 0;
+    };
+    sortByZip = () => {
+
+        console.log(dataFj["Person"].sort(this.sortPersonByZip));
+    }
+    sortPersonByZip = (a, b) => {
+        let zipA = a.zipcode;
+        let zipB = b.zipcode
+        if (zipA < zipB) {
+            return -1;
+        }
+        if (zipA > zipB) {
+            return 1;
+        }
+        return 0;
+    }
+    sortByCity = () => {
+
+        console.log(dataFj["Person"].sort(this.sortPersonByCity));
+    }
+    sortPersonByCity = (a, b) => {
+        let CityA = a.City
+        let CityB = b.City
+        if (CityA < CityB) {
+            return -1;
+        }
+        if (CityA > CityB) {
+            return 1;
+        }
+        return 0;
+    }
+    Sort_by_FirstName_City_ZipCode = () => {
+        console.log("\n1.Sort Details by firstname:\n", "2.Sort Details by zipCode:\n", "3.Sort Details by City:\n");
+        let input = readline.questionInt('Enter your choice->');
+        switch (input) {
+            case 1:
+                this.sortByName();
+                break;
+            case 2:
+                this.sortByZip();
+                break;
+            case 3:
+                this.sortByCity();
+                break;
+
+            default:
+                break;
+        }
+    }
 
 
 }
