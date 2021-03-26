@@ -123,11 +123,11 @@ class AddressBook {
             var fs = require('fs');
             fs.writeFile('storeAddressBookDetails.json', DataTj, function(error) {
                 if (error) {
-                    console.log('[writing contact to json file]: ' + err);
+                    console.log('[updating json file]: ' + err);
                     if (fail)
                         fail(error);
                 } else {
-                    console.log('[writing contact to json file]: success');
+                    console.log('[updating json file]: success');
                     if (success)
                         success();
                 }
@@ -155,8 +155,25 @@ class AddressBook {
     getcount = () => {
         let count = Object.keys(dataFj["Person"]).length
 
-        console.log("There Are " + count + "contacts present in addressbook")
+        console.log("There Are " + count + " contacts present in addressbook")
     }
+
+    deleteContact = () => {
+        let name = readline.question("Enter name of person to delete: ")
+        let tempArray = [];
+        tempArray = dataFj["Person"]
+        let index = tempArray.map((item) => {
+            return item.firstname
+        }).indexOf(name);
+        console.log(index)
+        dataFj["Person"].splice(index, 1)
+        let dataTj = dataFj["Person"]
+        console.log(dataTj)
+
+
+
+    }
+
 
 }
 module.exports = new AddressBook();
